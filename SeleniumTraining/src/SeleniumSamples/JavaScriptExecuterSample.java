@@ -1,5 +1,6 @@
 package SeleniumSamples;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -47,11 +48,30 @@ public class JavaScriptExecuterSample {
        // driver.quit();
          js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
          Thread.sleep(2000); 
-        // js.executeScript("window.scrollBy(0,document.body.scrollTop)");
-       //  js.executeScript("window.scrollTo.valueOf(0)");
-        // js.executeScript("window.scroll.valueOf(screenTop)");
-        //js.executeScript("window.scrollBy(0,0)"); --window.scrollX(0)
-         js.executeScript("window.scrollX(0)");
+        // js.executeScript("window.scrollTo(0,screenTop)");
+         // js.executeScript("window.scrollTo(0,0)");
+        //js.executeScript("window.scrollTo(0,-600)");
+         //js.executeScript("window.scrollBy(0,-document.body.scrollHeight)");
+         js.executeScript("document.getElementById('ohrmList_chkSelectRecord_4').scrollIntoView()");
+         System.out.println("Scroll Into Specic Element works well");
+         //System.out.println(driver.findElement(By.id("resultTable")).getText());
+         String Table = js.executeScript("return document.getElementById('resultTable').innerText").toString();
+         System.out.println(Table);
+         Thread.sleep(2000); 
+         js.executeScript("window.history.back()");
+         Thread.sleep(2000);
+         js.executeScript("window.history.forward()");
+         Thread.sleep(2000);
+         js.executeScript("alert('Welcome to Selenium Training')");        
+         Thread.sleep(3000);         
+         // Alert - confirm         
+         js.executeScript("confirm('Enter the Credentails')");         
+         Thread.sleep(3000);         
+         //Alert-promt         
+         js.executeScript("prompt('Enter the credentials','Enter Yes/NO')");
+         
+         
+         
 	}
 
 }
